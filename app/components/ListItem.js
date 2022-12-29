@@ -1,17 +1,30 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, TouchableHighlight, View } from 'react-native';
+import  {Swipeable ,GestureHandlerRootView}from 'react-native-gesture-handler';
+
 import AppText from './AppText';
 import colors from "../config/colors";
 
-function ListItem({title,subTitle,image}) {
+function ListItem({title,subTitle,image,IconComponent, onPress,renderRightActions}) {
     return (
+        <GestureHandlerRootView>
+
+        <Swipeable renderRightActions={renderRightActions}>
+        <TouchableHighlight 
+        underlayColor={colors.light}
+        onPress={onPress}>
+
         <View style={styles.container}>
-            <Image style={styles.image} source={image}/>
+        {IconComponent}
+            {image && <Image style={styles.image} source={image}/>}
             <View style={styles.listConatiner}>
                 <AppText style={styles.title}>{title}</AppText>
-                <AppText style={styles.subTitle}>{subTitle}</AppText>
+                {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
             </View>
         </View>
+        </TouchableHighlight>
+        </Swipeable>
+        </GestureHandlerRootView>
         
     );
 }
@@ -19,16 +32,18 @@ function ListItem({title,subTitle,image}) {
 const styles = StyleSheet.create({
     container:{
         flexDirection:"row",
+        padding:15,
+        backgroundColor:colors.white,
     },
     image:{
         width:70,
         height:70,
         borderRadius:35,
-        rightMargin:10,
+
     },
     listConatiner:{
-        marginLeft:15,
-        marginTop:5,
+        marginLeft:10,
+        justifyContent:"center",
     },
 
     subTitle:{
