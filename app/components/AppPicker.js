@@ -8,14 +8,22 @@ import { TouchableWithoutFeedback } from 'react-native';
 import Screen from './Screen';
 import PickerItem from './PickerItem';
 
-function AppPicker({icon,items,placeholder,selectedItem,onSelectItem}) {
+function AppPicker({icon,
+    items,
+    placeholder,
+    PickerItemComponent=PickerItem,
+    selectedItem,
+    onSelectItem,
+    width="100%",
+    numberOfColumns=1,
+}) {
 
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
         <>
         <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container,{width}]}>
         {icon && <MaterialCommunityIcons name={icon} size={20} 
         color={colors.medium} style={styles.icon}
         />
@@ -35,7 +43,11 @@ function AppPicker({icon,items,placeholder,selectedItem,onSelectItem}) {
             <FlatList
                 data={items}
                 keyExtractor={item => item.value.toString()}
-                renderItem={({item})=><PickerItem label={item.label}
+                numColumns={numberOfColumns}
+                renderItem={({item})=>
+                <PickerItemComponent
+                item={item}
+                label={item.label}
                     onPress={() =>{
                         setModalVisible(false);
                         onSelectItem(item);
@@ -52,7 +64,6 @@ const styles = StyleSheet.create({
         backgroundColor:colors.light,
         borderRadius:25,
         flexDirection: 'row',
-        width:"100%",
         padding:15,
         marginVertical:10,
     },
