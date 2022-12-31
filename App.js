@@ -1,21 +1,23 @@
 import React from "react";
-import { NavigationContainer } from '@react-navigation/native';
-
-import AuthNavigator from "./app/navigation/AuthNavigator";
-import NavigationTheme from "./app/navigation/NavigationTheme";
+import { NavigationContainer } from "@react-navigation/native";
+import NavigationTheme from './app/navigation/NavigationTheme';
 import AppNavigator from "./app/navigation/AppNavigator";
-import Screen from "./app/components/Screen";
-import ListingScreen from "./app/screens/ListingScreen";
+import OfflineNotice from "./app/components/OfflineNotice";
 
 export default function App() {
 
   return (
+    <>
+
+    <OfflineNotice/>
     <NavigationContainer theme={NavigationTheme}>
-   <AppNavigator/>
-  </NavigationContainer>
-  
-      
+    <AppNavigator/>
+
+    </NavigationContainer>
+    </>
   );
+
+  
 }
 
 
