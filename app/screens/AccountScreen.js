@@ -35,7 +35,7 @@ function AccountScreen({ navigation }) {
         <ListItem
           title={user.name}
           subTitle={user.email}
-          image={require("../assets/mosh.jpg")}
+          image={require("../assets/user.png")}
         />
       </View>
       <View style={styles.container}>
@@ -59,7 +59,7 @@ function AccountScreen({ navigation }) {
       </View>
       <ListItem
         title="Log Out"
-        IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+        IconComponent={<Icon name="logout" backgroundColor="#FF577F" />}
         onPress={() => logOut()}
       />
     </Screen>
