@@ -18,8 +18,8 @@ function ListingDetailsScreen({route}) {
             <View style={styles.userContainer}>
 
             <ListItem 
-                image={require("../assets/mosh.jpg")}
-                title="Mosh"
+                image={require("../assets/user.png")}
+                title="Jake"
                 subTitle="5 Listings"
             />
             </View>
