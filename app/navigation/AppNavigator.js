@@ -2,9 +2,8 @@ import React from 'react';
 import {createBottomTabNavigator} from  '@react-navigation/bottom-tabs';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 
+
 import ListingEditScreen from '../screens/ListingEditScreen';
-import AccountScreen from '../screens/AccountScreen';
-import ListingScreen from '../screens/ListingScreen';
 import FeedNavigator from './FeedNavigator';
 import AccountNavigator from './AccountNavigator';
 import NewListingButton from './NewListingButton';
