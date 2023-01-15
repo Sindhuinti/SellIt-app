@@ -47,12 +47,8 @@ npm install
 ``` 
 npm start
 ```
-3. Start backend server
-``` 
-cd backend
-nodemon index.js
-```
-4. Use Expo app to run the app
+
+3. Use Expo app to run the app
 
 ## Contributing
 
